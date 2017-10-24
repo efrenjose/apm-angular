@@ -43,7 +43,13 @@
                         <td>{{ product.productCode | lowercase | convertToSpaces: '-' }}</td>
                         <td>{{ product.releaseDate }}</td>
                         <td>{{ product.price | currency: 'USD': true: '1.2-2'}}</td>
-                        <td><pm-star [rating]='product.starRating'></pm-star></td>
+                        <td>
+                            <pm-star [rating]='product.starRating'
+                                     (ratingClicked)='onRatingClicked($event)'>
+                                     <!-- listen for ratingClicked event and execute onRatingClicked. 
+                                        $event passes along infor associated with raised event -->
+                            </pm-star>
+                        </td>
                     </tr>
                 </tbody>
             </table>
