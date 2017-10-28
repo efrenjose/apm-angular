@@ -7,15 +7,29 @@
         <tbody>
           <tr>
             <th>Name:</th>
-            <td>Video Game Controller</td>
+            <td>{{product.productName}}</td>
           </tr>
           <tr>
               <th>Code:</th>
-              <td>GMG-0042</td>
+              <td>{{product.productCode | lowercase | convertToSpaces: '-' }}</td>
           </tr>
           <tr>
               <th>Description:</th>
-              <td>Standard two button video game controller</td>
+              <td>{{product.description}}</td>
+          </tr>
+          <tr>
+              <th>Avilability</th>
+              <td>{{product.releaseDate}}</td>
+          </tr>
+          <tr>
+              <th>Price</th>
+              <td>{{product.price | currency: 'USD': true: '1.2-2'}}</td>
+          </tr>
+          <tr>
+              <th>Rating:</th>
+              <td>
+                  <pm-star [rating]='product.starRating'></pm-star>
+              </td>
           </tr>
         </tbody>
       </table>
